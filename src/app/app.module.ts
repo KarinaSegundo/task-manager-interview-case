@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header.component';
-import { TaskListComponent } from './components/task-list.component';
-import { TaskFormComponent } from './components/task-form.component';
-import { TaskItemComponent } from './components/task-item.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { TaskListComponent } from './components/task-list/task-list.component';
+import { TaskFormComponent } from './components/task-form/task-form.component';
+
 import { FormsModule } from '@angular/forms';
+import { TaskItemComponent } from './components/task-item/task-item.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { FormsModule } from '@angular/forms';
     TaskListComponent,
     TaskFormComponent,
     TaskItemComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent],

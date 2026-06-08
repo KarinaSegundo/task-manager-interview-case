@@ -1,0 +1,11 @@
+<button 
+  [type]="type"
+  [ngClass]="['ds-button', variant]"
+  [disabled]="disabled || loading"
+  (click)="onClick()">
+  
+  <span class="button-content">
+    <span *ngIf="loading" class="spinner" aria-hidden="true"></span>
+    <ng-content></ng-content>
+  </span>
+</button>

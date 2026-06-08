@@ -1,0 +1,81 @@
+.ds-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--font-family);
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  min-height: 48px;
+
+  &.primary {
+    background-color: var(--orange);
+    color: #FFFFFF;
+    
+    &:hover:not(:disabled) {
+      background-color: var(--orange-hover);
+      transform: translateY(-1px);
+    }
+    &.tertiary {
+      background-color: transparent;
+      color: var(--text-muted);
+      border: none;
+      padding: 8px 16px;
+      min-height: auto;
+
+      &:hover:not(:disabled) {
+        color: #E53E3E;
+        background-color: transparent;
+        text-decoration: underline;
+        transform: none;
+      }
+    }
+  }
+
+  &.danger {
+    background-color: transparent;
+    color: #E53E3E;
+    border: 1px solid #E53E3E;
+    
+    &:hover:not(:disabled) {
+      background-color: rgba(229, 62, 62, 0.05);
+    }
+  }
+
+  &:disabled {
+    background-color: #E0E0E0;
+    color: #A0A0A0;
+    cursor: not-allowed;
+    border: none;
+    transform: none;
+  }
+}
+
+.ds-button.link {
+  background-color: transparent;
+  color: var(--text-muted); 
+  border: none;
+  padding: 0;               
+  min-height: auto;         
+  font-weight: 400;         
+  text-decoration: underline; 
+  box-shadow: none;
+}
+
+.ds-button.link:hover:not(:disabled) {
+  color: #E53E3E;
+  background-color: transparent;
+  transform: none;
+}
+
+/* Transforma o span que envolve o conteúdo em um contêiner flexível */
+.ds-button span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
