@@ -1,0 +1,19 @@
+<div class="list-header">
+  <h2>Minhas tarefas</h2>
+
+  <span class="ds-badge" *ngIf="(stats$ | async) as stats">
+    {{ stats.concluidas }}/{{ stats.total }} {{ stats.label }}
+  </span>
+</div>
+
+<ng-container *ngIf="(tasks$ | async) as tasks">
+  
+  <div *ngFor="let task of tasks; trackBy: trackById">
+    <app-task-item [task]="task"></app-task-item>
+  </div>
+
+  <p *ngIf="tasks.length === 0" class="empty-state">
+    Nenhuma tarefa encontrada.
+  </p>
+
+</ng-container>
