@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Task, TaskService } from '../../core/service/task.service';
+import { TaskService } from '../../core/service/task.service';
+import { Task } from 'src/app/shared/models/task.model';
 
 @Component({
   selector: 'app-task-item',

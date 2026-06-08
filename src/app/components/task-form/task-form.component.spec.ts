@@ -1,7 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BehaviorSubject, of } from 'rxjs';
 import { TaskFormComponent } from './task-form.component';
-import { TaskService, Task } from 'src/app/core/service/task.service';
+import { TaskService } from 'src/app/core/service/task.service';
+import { Task } from 'src/app/shared/models/task.model';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 describe('TaskFormComponent', () => {
   let component: TaskFormComponent;
@@ -27,6 +29,7 @@ describe('TaskFormComponent', () => {
 
     await TestBed.configureTestingModule({
       declarations: [TaskFormComponent],
+      imports: [SharedModule],
       providers: [{ provide: TaskService, useValue: mockTaskService }],
     }).compileComponents();
 
