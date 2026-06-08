@@ -2,6 +2,24 @@
    Design Tokens
    ========================================================================== */
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #f7f7f7;
+}
+
+.header-container {
+  width: 100vw;
+  position: relative;
+  left: 0;
+  margin: 0;
+}
+
 :root {
   // Cores da Marca
   --orange: #FF6200;           
