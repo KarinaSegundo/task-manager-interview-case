@@ -1,11 +1,6 @@
 import { Injectable } from '@angular/core';
-import { delay, Observable, BehaviorSubject, of, map, finalize } from 'rxjs';
-
-export interface Task {
-  id: number;
-  title: string;
-  completed: boolean;
-}
+import { delay, Observable, BehaviorSubject, of, finalize } from 'rxjs';
+import { Task } from 'src/app/shared/models/task.model';
 
 @Injectable({
   providedIn: 'root',

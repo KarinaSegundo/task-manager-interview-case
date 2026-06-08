@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { Task, TaskService } from 'src/app/core/service/task.service';
+import { TaskService } from 'src/app/core/service/task.service';
 import { map } from 'rxjs';
+import { Task } from 'src/app/shared/models/task.model';
 
 @Component({
   selector: 'app-task-list',
