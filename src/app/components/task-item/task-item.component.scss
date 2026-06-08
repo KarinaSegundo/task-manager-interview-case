@@ -1,0 +1,61 @@
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-surface);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-card);
+  margin-bottom: var(--spacing-sm);
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+}
+
+.task-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.task-title {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.completed .task-title {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+// Estilização do Checkbox para combinar com a marca
+.ds-checkbox {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--border-light);
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+
+  &:checked {
+    background-color: var(--orange);
+    border-color: var(--orange);
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 6px;
+      width: 4px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+  }
+}

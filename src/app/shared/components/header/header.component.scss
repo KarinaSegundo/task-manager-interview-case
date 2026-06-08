@@ -1,0 +1,15 @@
+.header {
+  background-color: var(--orange);
+  color: #FFFFFF;
+  padding: var(--spacing-lg) var(--spacing-md);
+  margin: calc(var(--spacing-lg) * -1) calc(var(--spacing-md) * -1) var(--spacing-lg) calc(var(--spacing-md) * -1);
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(255, 98, 0, 0.15); // Sombra que reflete a cor do header
+  
+  h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+}

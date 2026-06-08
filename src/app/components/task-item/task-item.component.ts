@@ -1,9 +1,11 @@
-import { Component, Input } from '@angular/core';
-import { Task, TaskService } from './task.service';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Task, TaskService } from '../../core/service/task.service';
 
 @Component({
   selector: 'app-task-item',
-  templateUrl: './task-item.component.html'
+  templateUrl: './task-item.component.html',
+  styleUrls: ['./task-item.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TaskItemComponent {
   @Input() task!: Task;

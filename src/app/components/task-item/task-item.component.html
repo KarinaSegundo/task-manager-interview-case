@@ -1,0 +1,16 @@
+<li [class.completed]="task.completed" class="task-item">
+  <div class="task-content">
+    <input 
+      type="checkbox" 
+      (change)="onToggle()" 
+      [checked]="task.completed" 
+      class="ds-checkbox"
+      [attr.aria-label]="'Marcar tarefa ' + task.title + ' como ' + (task.completed ? 'incompleta' : 'completa')"
+    />
+    <span class="task-title">{{ task.title }}</span>
+  </div>
+  
+  <app-button variant="link" (btnClick)="onRemove()">
+    Remover
+  </app-button>
+</li>
