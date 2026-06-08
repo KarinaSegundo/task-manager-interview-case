@@ -1,23 +1,30 @@
-# A última pessoa que desenvolveu esse projeto deixou alguns itens que precisam ser corrigidos/implementados:
-- Deveria ser listadas 3 tasks já pré-preenchidas. Mas elas só surgem quando o cliente preenche algo e clica em adicionar task. Essas 3 tasks devem ser pré-carregadas na inicialização.
-- Existe um erro que estoura no console quando o app é inicializado, e portanto deve ser solucionado.
-- Não deveria chamar api a cada digitação do cliente na adição de novas tasks
-- Existe um problema de performance na chamada de API, portanto diminua o tempo de exibição de adição de cada task, no entanto os delays ou seus valores não podem ser removidos ou alterados
-- Não permitir adicionar a mesma task, devendo aceitar somente letras com no mínimo 20 caracteres;
-- Crie os testes unitários;
-- As pastas estão desorganizadas, é preciso organizar;
-- Há um problema de perfomance num script inicial que trava a inicialização inicial, mas não é obrigatório no momento de inicialização, podendo ser carregado posteriormente.
-- Documente o projeto
+# Task Manager - Case de Engenharia
 
-# Itens de design de arquitetura:
-- Esse front é utilizado por milhões de clientes em diversos países.
-- O front não exige dinamismo na interface em runtime; Além disso, esse front também é muito acesso por dispositivos móveis. Qual tipo de estratégia de renderização você utilizaria para melhorar a performance, principalmente para cliente com baixa conexão?
-- A empresa está avaliando se continua utilizando o angular ou muda pra uma nova tecnologia e te pediu uma avaliação. Você precisa avaliar de acordo com os critérios que você mesmo definir e deverá apresentar sua escolha final.
+Este projeto é uma solução de gerenciamento de tarefas desenvolvida com foco total em **performance**, **escalabilidade** e **usabilidade**. O objetivo central foi entregar uma aplicação robusta e intuitiva, preparada para atender usuários que dependem de dispositivos móveis e conexões de internet limitadas.
 
-# Opcional
-- A área de qualidade percebeu que nenhum loading está sendo apresentado na adição de novos itens, dando a impressão da tela estar travada;
-- Utilizar os recursos mais recentes da linguagem e framework;
+## 🎯 Valor para o Usuário
+* **Agilidade:** Otimizei o carregamento para que a interface seja responsiva e rápida, garantindo que o usuário interaja com suas tarefas instantaneamente.
+* **Experiência Limpa:** Validações intuitivas que orientam o usuário e evitam erros durante o uso.
+* **Confiabilidade:** Aplicação estável e testada, assegurando que o fluxo de trabalho não seja interrompido por falhas inesperadas.
 
-## Com exceção dos itens que você não pode remover dentro do código, utilize as melhores práticas de desenvolvimento.
+## 🚀 Como acessar a demonstração
+* [Acesse a versão online do projeto aqui](https://task-manager-interview-case-d1vq.vercel.app/)
 
+## 🧠 Arquitetura e Decisões Técnicas
+Como responsável pelo projeto, tomei decisões estratégicas para equilibrar a agilidade de entrega com a sustentabilidade do código a longo prazo:
 
+* **Por que Angular?** Optei por manter a stack Angular pela sua maturidade e robustez. Foquei em **otimizações cirúrgicas** (como `OnPush`, `Async Pipe` e `TrackBy`), que extraíram o máximo de performance da framework, garantindo um resultado final superior sem os riscos inerentes a uma migração completa.
+* **Arquitetura Modular:** Estruturei o código em camadas (Core/Shared/Features) para garantir desacoplamento, facilitando a manutenção e a inserção de novas funcionalidades no futuro.
+* **Foco em Performance:** Implementei técnicas que priorizam o carregamento do conteúdo crítico, garantindo que a aplicação seja leve mesmo em dispositivos com menor capacidade de processamento.
+
+## 🛠️ Qualidade e Testes
+A aplicação conta com uma camada de **testes automatizados** focada nas regras de negócio críticas. Isso permitiu o desenvolvimento com segurança, garantindo que novas adições não introduzam comportamentos inesperados no sistema.
+
+## ⏭️ Próximos Passos (Roadmap)
+O projeto foi estruturado para evoluir de forma sustentável. As melhorias planejadas para a próxima fase incluem:
+1. **Experiência Offline:** Implementação de *Service Workers* para garantir que o usuário continue produtivo mesmo em áreas com conexão instável.
+2. **Monitoramento e Observabilidade:** Integração de ferramentas de rastreamento de erros para identificar falhas em tempo real.
+3. **Internacionalização:** Preparação da arquitetura para suportar múltiplos idiomas, facilitando a expansão para novos mercados.
+
+---
+*Desenvolvido por Karina Sousa.*
