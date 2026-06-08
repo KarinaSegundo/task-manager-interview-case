@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Task, TaskService } from 'src/app/core/service/task.service';
+import { TaskService } from 'src/app/core/service/task.service';
+import { Task } from 'src/app/shared/models/task.model';
 
 @Component({
   selector: 'app-task-form',

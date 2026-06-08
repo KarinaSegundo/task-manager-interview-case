@@ -1,8 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TaskItemComponent } from './task-item.component';
-import { TaskService, Task } from '../../core/service/task.service';
+import { TaskService } from '../../core/service/task.service';
 import { By } from '@angular/platform-browser';
 import { Component } from '@angular/core';
+import { Task } from 'src/app/shared/models/task.model';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 describe('TaskItemComponent', () => {
   let component: TaskItemComponent;
@@ -20,6 +22,7 @@ describe('TaskItemComponent', () => {
 
     await TestBed.configureTestingModule({
       declarations: [TaskItemComponent],
+      imports: [SharedModule],
       providers: [{ provide: TaskService, useValue: mockTaskService }],
     }).compileComponents();
 

@@ -1,5 +1,6 @@
 import { TestBed, fakeAsync, tick } from '@angular/core/testing';
-import { TaskService, Task } from './task.service';
+import { TaskService } from './task.service';
+import { Task } from 'src/app/shared/models/task.model';
 
 describe('TaskService', () => {
   let service: TaskService;

@@ -1,8 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BehaviorSubject } from 'rxjs';
 import { TaskListComponent } from './task-list.component';
-import { TaskService, Task } from 'src/app/core/service/task.service';
+import { TaskService } from 'src/app/core/service/task.service';
 import { firstValueFrom } from 'rxjs';
+import { take } from 'rxjs/operators';
+import { Task } from 'src/app/shared/models/task.model';
+import { Component, Input } from '@angular/core';
+@Component({ selector: 'app-task-item', template: '' })
+class StubTaskItemComponent { @Input() task: any; }
 
 describe('TaskListComponent', () => {
   let component: TaskListComponent;
@@ -25,7 +30,7 @@ describe('TaskListComponent', () => {
     };
 
     await TestBed.configureTestingModule({
-      declarations: [TaskListComponent],
+      declarations: [TaskListComponent, StubTaskItemComponent],
       providers: [{ provide: TaskService, useValue: mockTaskService }],
     }).compileComponents();
 
@@ -47,24 +52,27 @@ describe('TaskListComponent', () => {
   });
 
   it('should update stats when tasks change', (done) => {
-    let callCount = 0;
+    const results: any[] = [];
 
-    const sub = component.stats$.subscribe((stats) => {
-      callCount++;
-      if (callCount === 1) {
-        // initial
-        expect(stats.total).toBe(3);
-        expect(stats.concluidas).toBe(2);
+    component.stats$.pipe(take(2)).subscribe({
+      next: (stats) => {
+        results.push(stats);
+        if (results.length === 1) {
+          // initial
+          expect(stats.total).toBe(3);
+          expect(stats.concluidas).toBe(2);
 
-        // push new state
-        tasksSubject.next([
-          { id: 1, title: 'A', completed: true },
-        ]);
-      } else if (callCount === 2) {
-        expect(stats.total).toBe(1);
-        expect(stats.concluidas).toBe(1);
-        expect(stats.label).toBe('concluída');
-        sub.unsubscribe();
+          // push new state
+          tasksSubject.next([
+            { id: 1, title: 'A', completed: true },
+          ]);
+        }
+      },
+      complete: () => {
+        // second emission assertions
+        expect(results[1].total).toBe(1);
+        expect(results[1].concluidas).toBe(1);
+        expect(results[1].label).toBe('concluída');
         done();
       }
     });
